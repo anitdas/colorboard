@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TopNav from './topnav/TopNav';
 import keydown from 'react-keydown';
 import ArtCanvas from './ArtCanvas';
+import Colorboard from './colorboard/Colorboard';
 import './App.css';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
       <div style={this.style} className='App'>
         <TopNav />
         <ArtCanvas keyData={this.state.colorArray} />
+        <Colorboard />
       </div>
     );
   }
