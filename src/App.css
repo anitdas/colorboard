@@ -1,0 +1,11 @@
+html, body, .App, #root {
+ height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
