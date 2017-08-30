@@ -9,7 +9,7 @@ class ArtCanvas extends Component {
 
     const squareLength = 5;
 
-    this.KeyboardMappings = new KeyboardMappings;
+    this.KeyboardMappings = new KeyboardMappings();
 
     this.style = {
       container: {

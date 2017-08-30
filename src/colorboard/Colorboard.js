@@ -10,7 +10,7 @@ class Colorboard extends Component {
 
     };
 
-    this.KeyboardMappings = new KeyboardMappings;
+    this.KeyboardMappings = new KeyboardMappings();
 
     this.style = {
       container: {
