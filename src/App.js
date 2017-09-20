@@ -26,10 +26,11 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
+    // Captures key-presses into a string
+    // (which come to think of it might not work
+    // for shift and stuff, but we'll figure that out)
 
     if ( nextProps.keydown.event ) {
-
       this.setState({
         colorString: this.state.colorString + nextProps.keydown.event.key,
       });
@@ -37,30 +38,28 @@ class App extends Component {
   }
 
   render() {
-    // { this.renderTopNav() }
-    // { this.renderColorboard() }
-
     return (
       <div style={this.style} className='App'>
-        { this.renderZverb() }
+        { this.renderTopNav() }
+        { this.renderColorboard() }
       </div>
     );
   }
 
-  // renderTopNav(){
-  //   return <TopNav />
-  // }
+  renderTopNav(){
+    return <TopNav />
+  }
 
-  // renderColorboard(){
-  //   // need to do the string/array conversion for the text
-  //   return (
-  //     <div>
-  //       <ArtCanvas keyData={this.state.colorArray} />
-  //       <Colorboard />
-  //     </div>
-  //   );
-  // }
+  renderColorboard(){
+    return (
+      <div>
+        <ArtCanvas colorString={this.state.colorString} />
+        <Colorboard />
+      </div>
+    );
+  }
 
+  // Z-index Reverb
   renderZverb(){
     return <Zverb colorString={this.state.colorString} />;
   }

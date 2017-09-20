@@ -45,6 +45,10 @@ export default class KeyboardMappings {
     return returnable;
   }
 
+  colorFunc(key){
+    return this.colorMap[key] || 'white';
+  }
+
 
   colorMap = {
     ' ': 'white',

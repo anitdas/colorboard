@@ -48,46 +48,27 @@ class ArtCanvas extends Component {
     );
   }
 
-  renderCubes() {
-    const rows = this.props.keyData.map((keydownEvent, index) => {
-      const processedKey = this.processKeyPress(keydownEvent);
-      if (processedKey){
-        const style=_.extend({}, this.style.tile, this.colorFunc(keydownEvent.key));
-        return (
-          <div key={`tile-${index}`} style={style} />
-        );
-      } else {
-        return null;
-      }
-    });
+  renderCubes(){
+    const cubes = []
+    // strings to divs
+    for (let i = 0; i < this.props.colorString.length; i++) {
+      const char = this.props.colorString.charAt(i);
+      const colorStyle = {backgroundColor: this.KeyboardMappings.colorFunc(char)};
 
-    return rows;
+      const cube = <div
+        key={`colortile-${i}`}
+        style={_.extend({},this.style.tile,colorStyle)}>
+      </div>;
+
+      cubes.push(cube);
+    }
+
+    return cubes;
   }
-
-  processKeyPress(keydownEvent) {
-    // if (keydownEvent.altKey || keydownEvent.ctrlKey || keydownEvent.shiftKey) {
-    //   return null;
-    // }
-    // Delete??
-    // SPACE??
-    // const x= keydownEvent;
-    // console.log(x);
-    // debugger
-    return keydownEvent.key;
-  }
-
-  colorFunc(key){
-    // Colors taken from : http://www.toxel.com/wp-content/uploads/2013/02/colortypewriter11.jpg
-    const colorMapKeyColumns = this.KeyboardMappings.colorMap;
-    const tileColor = { backgroundColor: (colorMapKeyColumns[key] || 'white') };
-
-    return tileColor;
-  }
-
 }
 
 ArtCanvas.propTypes = {
-  keyData: PropTypes.array.isRequired,
+  colorString: PropTypes.string.isRequired,
 };
 
 export default ArtCanvas;
