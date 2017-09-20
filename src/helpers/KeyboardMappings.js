@@ -16,7 +16,6 @@ export default class KeyboardMappings {
       ['Control','Control','Alt','Alt','Meta','Meta','Space','Space','Meta','Meta','Alt','Alt','Control','Control']];
 
     this.keyboardKeyRows = this.calculateKeyboardKeyRows();
-
   }
 
   calculateKeyboardKeyRows = function(){

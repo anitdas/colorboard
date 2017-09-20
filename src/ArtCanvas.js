@@ -7,7 +7,7 @@ class ArtCanvas extends Component {
   constructor(props) {
     super(props);
 
-    const squareLength = 5;
+    const squareLength = 10;
 
     this.KeyboardMappings = new KeyboardMappings();
 

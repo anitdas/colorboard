@@ -18,10 +18,10 @@ class App extends Component {
     this.style = {
       width: '100%',
       height: '100%',
+      margin: 0,
+      padding: 0,
+      border: 0,
       backgroundColor: '#333333',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
     };
 
     this.skipKeys = ['Alt', 'Meta', 'Dead', 'Tab', 'CapsLock', 'Shift', 'Backspace', 'Delete', 'Enter', 'Shift', 'ArrowRight','ArrowLeft','ArrowUp','ArrowDown'];

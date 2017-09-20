@@ -16,10 +16,10 @@ class Colorboard extends Component {
       container: {
         border: '3px solid darkgray',
         backgroundColor: 'none',
-        margin: '10px',
+
         position: 'fixed',
         bottom: '0px',
-        width: '90%',
+        width: '100%'
       },
 
       keyRow: {

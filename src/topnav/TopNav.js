@@ -27,7 +27,7 @@ class TopNav extends Component {
         <div style={style.text}>
           <div style={style.bits}>W E L C O M E</div>
           <div style={style.bits}>TO</div>
-          <div style={style.bits}>C O L O R T Y P E R</div>
+          <div style={style.bits}>H U E B O A R D</div>
         </div>
       </div>
     );
