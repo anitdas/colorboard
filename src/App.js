@@ -12,6 +12,7 @@ class App extends Component {
 
     this.state = {
       colorArray: [],
+      colorString: ' ',
     };
 
     this.style = {
@@ -24,12 +25,14 @@ class App extends Component {
     };
   }
 
-  componentWillReceiveProps( {keydown} ) {
-    console.log("Anit");
+  componentWillReceiveProps(nextProps) {
 
-    if ( keydown.event ) {
-      debugger
-      this.state.colorArray.push(keydown.event);
+
+    if ( nextProps.keydown.event ) {
+
+      this.setState({
+        colorString: this.state.colorString + nextProps.keydown.event.key,
+      });
     }
   }
 
@@ -39,29 +42,28 @@ class App extends Component {
 
     return (
       <div style={this.style} className='App'>
-
-
         { this.renderZverb() }
       </div>
     );
   }
 
-  renderTopNav(){
-    return <TopNav />
-  }
+  // renderTopNav(){
+  //   return <TopNav />
+  // }
 
-  renderColorboard(){
-    return (
-      <div>
-        <ArtCanvas keyData={this.state.colorArray} />
-        <Colorboard />
-      </div>
-    );
-  }
+  // renderColorboard(){
+  //   // need to do the string/array conversion for the text
+  //   return (
+  //     <div>
+  //       <ArtCanvas keyData={this.state.colorArray} />
+  //       <Colorboard />
+  //     </div>
+  //   );
+  // }
 
   renderZverb(){
-    return <Zverb keyData={this.state.colorArray} />;
+    return <Zverb colorString={this.state.colorString} />;
   }
 }
 
-export default keydown(App) ;
+export default keydown(App);
