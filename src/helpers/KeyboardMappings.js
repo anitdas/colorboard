@@ -33,7 +33,7 @@ export default class KeyboardMappings {
         } else {
           currentKey.regular = singleKey;
           currentRow.push(currentKey);
-          currentKey = { regular: '', shifted: ''};
+          currentKey = { regular: '', shifted: '', id: `key-${rowsIndex}-${keyIndex}` };
         }
 
         if (keyIndex === row.length-1){

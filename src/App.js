@@ -23,6 +23,8 @@ class App extends Component {
       justifyContent: 'center',
       alignItems: 'center',
     };
+
+    this.skipKeys = ['Alt', 'Meta', 'Dead', 'Tab', 'CapsLock', 'Shift', 'Backspace', 'Delete', 'Enter', 'Shift', 'ArrowRight','ArrowLeft','ArrowUp','ArrowDown'];
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,9 +32,19 @@ class App extends Component {
     // (which come to think of it might not work
     // for shift and stuff, but we'll figure that out)
 
-    if ( nextProps.keydown.event ) {
+    this.addKeyToColorString(nextProps.keydown.event);
+  }
+
+  addKeyToColorString(keyDownEvent) {
+    // could muck with keydownevent for the other keyboard types
+    if ( keyDownEvent ) {
+      const key = keyDownEvent.key;
+
+      const foundKey = this.skipKeys.indexOf(key) === -1;
+      const addKey = foundKey ? key : '';
+
       this.setState({
-        colorString: this.state.colorString + nextProps.keydown.event.key,
+        colorString: this.state.colorString + addKey,
       });
     }
   }

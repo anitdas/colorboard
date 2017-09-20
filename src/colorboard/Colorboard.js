@@ -54,16 +54,16 @@ class Colorboard extends Component {
 
   render() {
     return (
-      <div style={this.style.container}>
+      <div style={this.style.container} key={'colorboard'}>
         { this.renderRows(this.KeyboardMappings.keyboardKeyRows) }
       </div>
     );
   }
 
   renderRows(rows){
-    return _.map(rows, (row) => {
+    return _.map(rows, (row, rowIndex) => {
       return (
-        <div style={this.style.keyRow}>
+        <div style={this.style.keyRow} key={`hueboard-row-${rowIndex}`}>
           { this.renderRowKeys(row) }
         </div>
       );
@@ -78,9 +78,7 @@ class Colorboard extends Component {
       const regularStyle = _.extend({'backgroundColor': regularColor}, this.style.colorKey.regular);
 
       return (
-        <div style={this.style.colorKey.individual}>
-          <div>
-          </div>
+        <div key={`${keyboardKey.id}`} style={this.style.colorKey.individual}>
           <div style={shiftedStyle}>
             {keyboardKey.shifted}
           </div>
