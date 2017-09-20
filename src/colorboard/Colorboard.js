@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
+import PropTypes from 'prop-types';
 import KeyboardMappings from '../helpers/KeyboardMappings';
 
 class Colorboard extends Component {
@@ -14,8 +15,8 @@ class Colorboard extends Component {
 
     this.style = {
       container: {
-        border: '3px solid darkgray',
-        backgroundColor: 'none',
+        // border: '3px solid darkgray',
+        backgroundColor: '#333333',
 
         position: 'fixed',
         bottom: '0px',
@@ -79,10 +80,10 @@ class Colorboard extends Component {
 
       return (
         <div key={`${keyboardKey.id}`} style={this.style.colorKey.individual}>
-          <div style={shiftedStyle}>
+          <div style={shiftedStyle} onClick={()=>this.props.keyTapFunction(keyboardKey.shifted)}>
             {keyboardKey.shifted}
           </div>
-          <div style={regularStyle}>
+          <div style={regularStyle} onClick={()=>this.props.keyTapFunction(keyboardKey.regular)}>
             {keyboardKey.regular}
           </div>
         </div>
@@ -91,5 +92,10 @@ class Colorboard extends Component {
   }
 
 }
+
+
+Colorboard.propTypes = {
+  keyTapFunction: PropTypes.func.isRequired,
+};
 
 export default Colorboard;

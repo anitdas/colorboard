@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       colorArray: [],
-      colorString: ' ',
+      colorString: '',
     };
 
     this.style = {
@@ -22,6 +22,9 @@ class App extends Component {
       padding: 0,
       border: 0,
       backgroundColor: '#333333',
+      display: 'flex',
+      flexFlow: 'column nowrap',
+      alignContent: 'space-between',
     };
 
     this.skipKeys = ['Alt', 'Meta', 'Dead', 'Tab', 'CapsLock', 'Shift', 'Backspace', 'Delete', 'Enter', 'Shift', 'ArrowRight','ArrowLeft','ArrowUp','ArrowDown'];
@@ -49,6 +52,10 @@ class App extends Component {
     }
   }
 
+  colorboardKeyFunction(key){
+    this.addKeyToColorString({key: key});
+  }
+
   render() {
     return (
       <div style={this.style} className='App'>
@@ -62,11 +69,12 @@ class App extends Component {
     return <TopNav />
   }
 
+
   renderColorboard(){
     return (
-      <div>
+      <div style={{width: '100%', height:'100%'}}>
         <ArtCanvas colorString={this.state.colorString} />
-        <Colorboard />
+        <Colorboard keyTapFunction={this.colorboardKeyFunction.bind(this)} />
       </div>
     );
   }

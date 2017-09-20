@@ -17,14 +17,15 @@ class ArtCanvas extends Component {
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
+        padding: '10px',
+        overflow: 'scroll',
       },
 
       canvas: {
+        width: squareLength*90,
+        height: squareLength*60,
         padding: '10px',
-        width: '800px',
-        height: '600px',
         backgroundColor: 'white',
-        margin: '20px',
         boxShadow: '10px 10px 100px 0px rgba(0,0,0,0.75)'
       },
 
